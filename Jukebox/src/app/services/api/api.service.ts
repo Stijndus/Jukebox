@@ -10,10 +10,10 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getSongs(){
-    return this.http.get(`${this.URL}/songs`);
+    return this.http.get<any[]>(`${this.URL}/songs`);
   }
 
   getSong(id: number){
-    return this.http.get(`${this.URL}/songs/${id}`);
+    return this.http.get<any[]>(`${this.URL}/songs/${id}`);
   }
 }

@@ -11,19 +11,9 @@ export class HomeComponent {
   public singleSong: any;
 
   constructor(private ApiSrvc: ApiService) {
-    this.showSongs()
-    this.showSong(1)
-
   }
 
-  showSongs() {
-    this.ApiSrvc.getSongs().subscribe({
-      next: songs => {
-        this.songs = songs;
-        console.log(this.songs)
-      },
-    });
-  }
+  
 
   showSong(id: number) {
     this.ApiSrvc.getSong(id).subscribe({
