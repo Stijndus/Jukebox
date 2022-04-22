@@ -1,6 +1,12 @@
-<p>home works!</p>
-<ng-container *ngFor="let song of songs">
-    <p>{{song.title}}</p>
-    <p>{{song.artist}}</p>
-    <p>{{song.album}}</p>
-</ng-container>
+<div class="container d-flex">
+    <ng-container *ngFor="let playlist of playlists | async">
+        <div class="card m-1" style="width: 18rem;">
+            <img src="assets/images/{{playlist.image}}" class="card-img-top" alt="{{playlist.image}}" style="height: 16rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{playlist.title}}</h5>
+              <p class="card-text">{{playlist.description}}</p>
+              <a [routerLink]="['/playlists', playlist.id]" class="btn btn-primary">Go to playlist</a>
+            </div>
+          </div>
+    </ng-container>
+</div>

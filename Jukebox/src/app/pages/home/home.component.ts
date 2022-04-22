@@ -7,21 +7,9 @@ import { first, take } from 'rxjs/operators';
   providers: [ApiService],
 })
 export class HomeComponent {
-  public songs: any;
-  public singleSong: any;
+  public playlists: any;
 
   constructor(private ApiSrvc: ApiService) {
+    this.playlists = this.ApiSrvc.getPlaylists();
   }
-
-  
-
-  showSong(id: number) {
-    this.ApiSrvc.getSong(id).subscribe({
-      next: song => {
-        this.singleSong = song;
-        console.log(this.singleSong)
-      },
-    });
-  }
-  
 }
