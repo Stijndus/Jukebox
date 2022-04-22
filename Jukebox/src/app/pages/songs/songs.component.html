@@ -1,0 +1,10 @@
+<app-song-form></app-song-form>
+<section class="container">
+  <ag-grid-angular
+    style="width: 100%; height: 500px"
+    class="ag-theme-alpine"
+    [rowData]="rowData | async"
+    [columnDefs]="columnDefs"
+  >
+  </ag-grid-angular>
+</section>

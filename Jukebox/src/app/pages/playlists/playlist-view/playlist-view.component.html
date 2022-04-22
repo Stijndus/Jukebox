@@ -1,0 +1,40 @@
+<main class="container">
+  <section>
+    <div class="m-2">
+        <h1 class="text-center">{{ playlist?.title }}</h1>
+      <img
+        src="assets/images/{{ playlist?.image }}"
+        alt="{{ playlist?.image }}"
+        class="img-thumbnail"
+      />
+      <p class="description m-2 ">{{playlist?.description}}</p>
+    </div>
+  </section>
+  <section>
+    <ag-grid-angular
+      style="width: 100%; height: 500px"
+      class="ag-theme-alpine"
+      [rowData]="songsInPl$ | async"
+      [columnDefs]="columnDefs"
+      [frameworkComponents]="frameworkComponents"
+    >
+    </ag-grid-angular>
+  </section>
+  <section>
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+      <div class="form-group input-group-lg">
+        <input class="form-control" placeholder="Song" />
+        <select formControlName="song">
+          <ng-container *ngFor="let song of songs$ | async">
+            <option [value]="song.id">
+              {{ song.title }} - {{ song.artist }}
+            </option>
+          </ng-container>
+        </select>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-danger btn-block btn-lg">Create</button>
+      </div>
+    </form>
+  </section>
+</main>
