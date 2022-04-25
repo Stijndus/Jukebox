@@ -32,6 +32,9 @@
           <form [formGroup]="form" (ngSubmit)="submitForm()">
             <div class="form-group input-group-lg">
               <select formControlName="song">
+                <option selected disabled value="">
+                  Select song
+                </option>
                 <ng-container *ngFor="let song of songs$ | async">
                   <option [value]="song.id">
                     {{ song.title }} - {{ song.artist }}
